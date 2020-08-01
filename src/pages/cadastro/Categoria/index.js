@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
+import URL_BACKEND_TOP from '../../../config';
 
 function CadastroCategoria() {
   const valoresIniciais = {
@@ -30,17 +31,15 @@ function CadastroCategoria() {
   // ============
 
   useEffect(() => {
-    if (window.location.href.includes('localhost')) {
-      const URL = 'http://localhost:8080/categorias';
-      fetch(URL).then(async (respostaDoServer) => {
-        if (respostaDoServer.ok) {
-          const resposta = await respostaDoServer.json();
-          setCategorias(resposta);
-          return;
-        }
-        throw new Error('Não foi possível pegar os dados');
-      });
-    }
+    const URL = `${URL_BACKEND_TOP}/categorias`;
+    fetch(URL).then(async (respostaDoServer) => {
+      if (respostaDoServer.ok) {
+        const resposta = await respostaDoServer.json();
+        setCategorias(resposta);
+        return;
+      }
+      throw new Error('Não foi possível pegar os dados');
+    });
   }, []);
 
   return (
