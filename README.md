@@ -1,4 +1,4 @@
-# Aluraflix
+# Devflix
 
 [![licence mit](https://img.shields.io/badge/licence-MIT-blue.svg)](https://github.com/imersao-alura/aluraflix/blob/master/LICENSE)
 
@@ -14,8 +14,8 @@
 Após baixar o projeto, acesse ele via seu terminal rode os comandos:
 
 ```sh
-npm install
-npm start
+yarn install
+yarn start
 ```
 
 ## History
