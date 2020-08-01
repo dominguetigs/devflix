@@ -65,8 +65,7 @@ const Input = styled.input`
           transform: scale(.6) translateY(-10px);
         }
       `;
-  }
-}
+  }}
 `;
 
 function FormField({
