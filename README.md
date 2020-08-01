@@ -21,5 +21,5 @@ yarn start
 ## History
 Da uma olhada na aba [Releases](https://github.com/imersao-alura/aluraflix/releases) pra acompanhar as alterações feitas no projeto.
 
-## License/Licença do Projeto
-[MIT License](./LICENSE) © [Alura](http://alura.com.br/)
+## License
+[MIT License](./LICENSE)
