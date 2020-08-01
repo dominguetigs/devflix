@@ -23,7 +23,7 @@ function CadastroCategoria() {
   function handleChange(infosDoEvento) {
     setValue(
       infosDoEvento.target.getAttribute('name'),
-      infosDoEvento.target.valu,
+      infosDoEvento.target.value
     );
   }
 
@@ -32,35 +32,33 @@ function CadastroCategoria() {
   useEffect(() => {
     if (window.location.href.includes('localhost')) {
       const URL = 'http://localhost:8080/categorias';
-      fetch(URL)
-        .then(async (respostaDoServer) => {
-          if (respostaDoServer.ok) {
-            const resposta = await respostaDoServer.json();
-            setCategorias(resposta);
-            return;
-          }
-          throw new Error('Não foi possível pegar os dados');
-        });
+      fetch(URL).then(async (respostaDoServer) => {
+        if (respostaDoServer.ok) {
+          const resposta = await respostaDoServer.json();
+          setCategorias(resposta);
+          return;
+        }
+        throw new Error('Não foi possível pegar os dados');
+      });
     }
   }, []);
 
   return (
     <PageDefault>
       <h1>
-        Cadastro de Categoria: {values.nome}
+        Cadastro de Categoria:
+        {values.nome}
       </h1>
 
-      <form onSubmit={function handleSubmit(infosDoEvento) {
-        infosDoEvento.preventDefault();
+      <form
+        onSubmit={function handleSubmit(infosDoEvento) {
+          infosDoEvento.preventDefault();
 
-        setCategorias([
-          ...categorias,
-          values
-        ]);
+          setCategorias([...categorias, values]);
 
-        setValues(valoresIniciais)
-      }}>
-
+          setValues(valoresIniciais);
+        }}
+      >
         <FormField
           label="Nome da Categoria"
           type="text"
@@ -107,22 +105,16 @@ function CadastroCategoria() {
           </label>
         </div> */}
 
-        <button type="button">
-          Cadastrar
-        </button>
+        <button type="submit">Cadastrar</button>
       </form>
 
       <ul>
-        {categorias.map((categoria, indice) => (
-          <li key={`${categoria}${indice}`}>
-            {categoria.titulo}
-          </li>
+        {categorias.map((categoria) => (
+          <li key={`${categoria.id}`}>{categoria.titulo}</li>
         ))}
       </ul>
 
-      <Link to="/">
-        Ir para home
-      </Link>
+      <Link to="/">Ir para home</Link>
     </PageDefault>
   );
 }

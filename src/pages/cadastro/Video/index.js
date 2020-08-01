@@ -7,9 +7,11 @@ function CadastroVideo() {
     <PageDefault>
       <h1>Cadastro de Video</h1>
 
-      <Link to='/cadastro/categoria'>Cadastrar Categoria</Link>
+      <Link to="/cadastro/categoria">
+        Cadastrar Categoria
+      </Link>
     </PageDefault>
-  );
+  )
 }
 
-export default CadastroVideo;
+export default CadastroVideo; 
